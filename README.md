@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column        | Type      | Options                        |
-| ------------- | --------- | ------------------------------ |
-| name          | string    | null: false                    |
-| description   | text      | null: false                    |
-| category_id   | integer   | null: false                    |
-| condition     | integer   | null: false                    |
-| shipping_fee  | integer   | null: false                    |
-| shipping_area | integer   | null: false                    |
-| required_day  | integer   | null: false                    |
-| price         | integer   | null: false                    |
-| users         | reference | null: false, foreign_key: true |
+| Column           | Type      | Options                        |
+| ---------------- | --------- | ------------------------------ |
+| name             | string    | null: false                    |
+| description      | text      | null: false                    |
+| category_id      | integer   | null: false                    |
+| condition_id     | integer   | null: false                    |
+| shipping_fee_id  | integer   | null: false                    |
+| prefecture_id    | integer   | null: false                    |
+| required_day_id  | integer   | null: false                    |
+| price            | integer   | null: false                    |
+| user             | reference | null: false, foreign_key: true |
 
 
 ### Association
@@ -42,9 +42,8 @@
 
 | Column    | Type      | Options                        |
 | --------- | --------- | ------------------------------ |
-| buyer     | string    | null: false                    |
-| users     | reference | null: false, foreign_key: true |
-| items     | reference | null: false, foreign_key: true |
+| user      | reference | null: false, foreign_key: true |
+| item      | reference | null: false, foreign_key: true |
 
 ### Association
 
@@ -54,15 +53,15 @@
 
 ## addresses テーブル
 
-| Column     | Type      | Options                        |
-| ---------- | --------- | ------------------------------ |
-| post_code  | string    | null: false                    |
-| prefecture | integer   | null: false                    |
-| city       | string    | null: false                    |
-| street     | string    | null: false                    |
-| building   | string    |                                |
-| phone      | string    | null: false                    |
-| purchases  | reference | null: false, foreign_key: true |
+| Column        | Type      | Options                        |
+| ------------- | --------- | ------------------------------ |
+| post_code     | string    | null: false                    |
+| prefecture_id | integer   | null: false                    |
+| city          | string    | null: false                    |
+| street        | string    | null: false                    |
+| building      | string    |                                |
+| phone         | string    | null: false                    |
+| purchase      | reference | null: false, foreign_key: true |
 
 
 
