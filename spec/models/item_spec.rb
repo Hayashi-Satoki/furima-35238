@@ -33,7 +33,7 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('Category is not a number')
     end
-    
+
     it 'category_idが1だと登録できない' do
       @item.category_id = 1
       @item.valid?
@@ -101,7 +101,7 @@ RSpec.describe Item, type: :model do
     end
 
     it 'priceが¥300~¥9,999,999の間以外だと登録できない' do
-      @item.price = 10000000
+      @item.price = 10_000_000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
     end
