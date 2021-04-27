@@ -15,6 +15,7 @@ RSpec.describe PurchaseAddress, type: :model do
       end
 
       it '建物番号は空でも登録できること' do
+        @purchase_address.building = ''
         expect(@purchase_address).to be_valid
       end
     end
