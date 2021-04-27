@@ -61,9 +61,6 @@
 | street        | string    | null: false                    |
 | building      | string    |                                |
 | phone         | string    | null: false                    |
-| purchase      | reference | null: false, foreign_key: true |
-
-
 
 ### Association
 
