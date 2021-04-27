@@ -7,7 +7,5 @@ FactoryBot.define do
     street           { '天神１丁目１' }
     building         { ' ' }
     phone            { '09012345678' }
-    user_id          { 2 }
-    item_id          { 2 }
   end
 end
