@@ -10,6 +10,10 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@purchase_address).to be_valid
       end
+
+      it '建物番号は空でも登録できること' do
+        expect(@purchase_address).to be_valid
+      end
     end
 
     context '内容に問題がある場合' do
@@ -61,10 +65,28 @@ RSpec.describe PurchaseAddress, type: :model do
         expect(@purchase_address.errors.full_messages).to include("Phone is invalid")
       end
 
+      it 'phoneは英数混合では登録できない' do
+        @purchase_address.phone = 'aaa123456789'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Phone is invalid")
+      end
+
       it "tokenが空では登録できないこと" do
         @purchase_address.token = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
+      end
+
+      it "user_idが空では登録できないこと" do
+        @purchase_address.user_id = ''
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("User can't be blank")
+      end
+
+      it "item_idが空では登録できないこと" do
+        @purchase_address.item_id = ''
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Item can't be blank")
       end
   
     end
